@@ -1,12 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import heapq
 from gmusicapi import Mobileclient
+
 
 def login(device_id):
     api = Mobileclient()
     api.oauth_login(device_id)
     return api
+
 
 def top10_songs(api):
     songs = api.get_all_songs()
@@ -19,6 +19,7 @@ def top10_songs(api):
                  'artist': song['artist'],
                  'play_count': song['playCount']})
     return top10
+
 
 def top_n_things(api, thing_name, n_top):
     songs = api.get_all_songs()
