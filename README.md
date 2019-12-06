@@ -51,7 +51,9 @@ Use the api that is returned from the `utils.login` function for these below.
 `top_n_things(api, 'genre', 3)` will return top 5 genres
 
 ```
+>>> import os
 >>> from gmusic_account_summary.utils import *
+>>> api = login(os.getenv('DEVICE_ID'))
 >>> top_5_artists = top_n_things(api, 'artist', 5)
 >>> for i in range(len(top_5_artists)):
 ...     print(str(i+1) + '. ' + top_5_artists[i])
