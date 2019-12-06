@@ -50,3 +50,24 @@ Use the api that is returned from the `utils.login` function for these below.
 
 `top_n_things(api, 'genre', 3)` will return top 5 genres
 
+```
+>>> from gmusic_account_summary.utils import *
+>>> top_5_artists = top_n_things(api, 'artist', 5)
+>>> for i in range(len(top_5_artists)):
+...     print(str(i+1) + '. ' + top_5_artists[i])
+... 
+1. Frightened Rabbit
+2. The Front Bottoms
+3. You Blew It!
+4. Modern Baseball
+5. Kate Nash
+>>> top_5_genres = top_n_things(api, 'genre', 5)
+>>> for i in range(len(top_5_genres)):
+...     print(str(i+1) + '. ' + top_5_genres[i])
+... 
+1. Alternative/Indie
+2. Pop
+3. Rock
+4. Emo/Hardcore
+5. Indie
+```
