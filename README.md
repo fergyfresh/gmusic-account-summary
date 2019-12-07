@@ -73,3 +73,25 @@ Use the api that is returned from the `utils.login` function for these below.
 4. Emo/Hardcore
 5. Indie
 ```
+
+
+# The Yearly Review portion
+
+Alright this one requires downloading your My Activity data from takeout.google.com/settings/takeout.
+
+If you uncheck all the boxes and ctrl+f for `My Activity` and then select the file format and ask for json
+and then deselect all the other google services except for Google Play Music, for the fastest download and 
+I think the data will be too dirty to use for this right now.
+
+If you're having trouble getting it check out the Issues section, or even file an issue (search for one first).
+
+```
+from gmusic_account_summary.yearly_review import *
+
+activity = import_my_activity('MyActivity.json')
+songs, searches = clean_activities(activity)
+top_n_artists(songs, 5, datetime(2019,1,1), datetime(2020,1,1))
+```
+
+I have 2 similar functions, the data you get from the download isn't as hydrated as the data from the api. I am thinking
+that maybe I can link them by looking up each song and getting the genre.
