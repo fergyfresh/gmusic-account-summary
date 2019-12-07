@@ -63,3 +63,16 @@ def is_valid_date(timestamp, start: datetime=None, end: datetime=None):
     if start and timestamp < start or end and timestamp > end:
         return False
     return True
+
+
+def sweep_the_years(songs, top_n= 5, x_years_to_sweep=10):
+    ds = datetime(2019, 1, 1)
+    de = datetime(2020, 1, 1)
+    sweep = {}
+    for i in range(x_years_to_sweep):
+        top_artists = top_n_artists(songs, top_n, ds, de)
+        if top_artists:
+            sweep[ds] = top_artists
+        ds = ds.replace(year=ds.year - 1)
+        de = de.replace(year=de.year - 1)
+    return sweep
